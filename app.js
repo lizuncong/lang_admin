@@ -16,7 +16,8 @@ module.exports = app => {
       store[key] = null;
     },
   };
-  // // 将egg-auth插件添加进数组
+  // 注意coreMiddleware是有先后顺序的
+  app.config.coreMiddleware.push('notFound');
   app.config.coreMiddleware.push('auth');
   // app.beforeStart(async () => {
   //   await app.model.sync({
