@@ -16,6 +16,8 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1673154804761_2682';
 
   // add your middleware config here
+  // 添加到这里的middleware会对所有的请求都生效。如果只需要对某些请求生效
+  // 则可以在routerjs中手动添加
   config.middleware = [];
   // 先关闭吧，不然post请求会报错
   config.security = {
@@ -31,7 +33,7 @@ module.exports = appInfo => {
   config.session = {
     key: 'LANG_ADMIN',
     httpOnly: true,
-    maxAge: 1000 * 60 * 60, // 1000 * 60 * 60 * 24, // 过期时间：1天
+    maxAge: 1000 * 60 * 60 * 24, // 过期时间：1天
     renew: true, // cookie续期，本来5秒过期，但是只要5秒内继续访问页面，那过期时间就会重新计算
   };
   config.mysql = {

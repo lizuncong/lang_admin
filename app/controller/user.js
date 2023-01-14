@@ -48,7 +48,7 @@ class UserController extends Controller {
     }
   }
   async login() {
-    const { ctx, app } = this;
+    const { ctx } = this;
     const { username, password } = ctx.request.body;
     const user = await ctx.service.user.getUser(username, password);
     if (user) {
@@ -70,7 +70,6 @@ class UserController extends Controller {
   }
   async detail() {
     const { ctx, app } = this;
-    console.log('detail...', ctx.userInfo);
     const user = await ctx.service.user.getUser(ctx.userInfo.username);
     console.log('ctx.userInfo..', ctx.userInfo);
     if (user) {
