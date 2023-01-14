@@ -13,4 +13,8 @@ module.exports = app => {
   router.post('/api/user/logout', controller.user.logout);
   router.post('/api/user/edit', controller.user.edit);
 
+  // 项目
+  router.post('/api/project/add', controller.project.add);
+  router.get('/api/project/list', controller.project.list);
+
 };
